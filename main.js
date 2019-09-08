@@ -1,17 +1,11 @@
 const check = str => {
-  return (str.length<=4)
-  ? console.log((checkWord(str,3)))
-    : (str.length<=6)
-  ? console.log(checkWord(str,3) +'<br>'+checkWord(str,5))
-    : (str.length<=8)
-  ? console.log(checkWord(str,3) +'<br>'+
-    checkWord(str,5) +'<br>'+
-    checkWord(str,7))
-  : (str.length<=9)
-  ? console.log(checkWord(str,3) +'<br>'+
-    checkWord(str,5) +'<br>'+
-    checkWord(str,7) +'<br>'+
-    checkWord(str,9)) : console.log('too long...');
+   for(let i = 3; i <= str.length ; i+=2){
+     if(checkWord(str,i) === 'error'){
+       console.log('no palindrome');
+       return;
+     }
+      console.log((checkWord(str,i)));
+   }
 };
 const checkWord = (word, num) => {
   var pal = 0;
@@ -35,4 +29,4 @@ const checkWord = (word, num) => {
 check("repaper");
 check("Potato");
 check("racecar");
-check("dbsnj");
+check("dbbbnj");
